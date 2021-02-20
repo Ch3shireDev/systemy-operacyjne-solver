@@ -1,1 +1,42 @@
-<p>stronicowanie works!</p>
+<h1>Stronicowanie procesów</h1>
+
+<p>
+  W trakcie wykonywania pewnego 700-bajtowego programu zaobserwowano następujący
+  ciąg odwołań do pamięci (podane liczby wskazują adresy komórek pamięci - nie
+  są to numery stron):
+</p>
+
+<code>
+  {{ address_list }}
+</code>
+<p>
+  Wyznacz ciąg odwołań do stron, zakładając, że rozmiar strony wynosi
+  {{ page_size }} bajtów. Następnie, zakładając, że programowi temu przydzielono
+  w pamięci {{ total_memory }}
+  bajtów, wyznacz liczby błędów braku stron dla algorytmu:
+</p>
+<ul>
+  <li>FIFO</li>
+  <li>Optymalnego</li>
+  <li>LRU</li>
+</ul>
+<p>Należy podać sposób rozwiązania i uzasadnienie.</p>
+
+<label for="basic-url">Rozmiar pojedynczej strony w bajtach.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="page_size" />
+</div>
+<label for="basic-url">Całkowita ilość pamięci przydzielonej programowi.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="total_memory" />
+</div>
+<label for="basic-url"
+  >Adresy komórek w pamięci do których następuje odwołanie.</label
+>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="address_list" />
+</div>
+<button class="btn btn-primary" (click)="generate()">Generuj</button>
+<div class="row pt-5">
+  <code [innerHTML]="output"></code>
+</div>

@@ -1,1 +1,34 @@
-<p>adresowanie works!</p>
+<h1>Adresowanie plików na dysku</h1>
+
+<p>
+  Dana jest mapa bitowa systemu plików, w którym blok ma {{ block_size }} kB, a
+  fragment {{ fragment_size }} kB. Poniżej mapy podane są adresy początkowe
+  kolejnych fragmentów. Należy zaadresować plik o rozmiarze {{ file_size }} kB.
+</p>
+
+<p>
+  Należy podać (w wolnym wierszu) nowy stan mapy bitowej, a także ile i które
+  wskaźniki adresowe i-węzła będą wykorzystane do zaadresowania pliku i jakie
+  adresy będą w nich umieszczone? Odpowiedź uzasadnić.
+</p>
+
+<label for="basic-url">Rozmiar bloku na mapie bitowej, w kb.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="block_size" />
+</div>
+<label for="basic-url">Rozmiar fragmentu w kb.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="fragment_size" />
+</div>
+<label for="basic-url">Rozmiar pliku do zaadresowania, w kb.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="file_size" />
+</div>
+<label for="basic-url">Początkowa mapa bitowa.</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" [(ngModel)]="bit_map" />
+</div>
+<button class="btn btn-primary" (click)="generate()">Generuj</button>
+<div class="row pt-5">
+  <code [innerHTML]="output"></code>
+</div>
