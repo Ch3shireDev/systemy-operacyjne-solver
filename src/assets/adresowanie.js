@@ -106,7 +106,7 @@ function adresowanie(bit_map, block_size, fragment_size, file_size) {
   print(`PO     : ${data.map((x) => spacePad(x, 2)).join("  ")}`);
   print(
     `NUMERY : ${[...Array(data.length)]
-      .map((x, i) => spacePad(i + 1, 2))
+      .map((x, i) => spacePad(i, 2))
       .join("  ")}`
   );
 
